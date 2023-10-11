@@ -5,7 +5,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 
 const routes: Routes = [
   { path: 'kanban', component: KanbanBoardComponent },
-  { path: 'details', component: TaskDetailsComponent }
+  { path: 'create-invoice', component: TaskDetailsComponent }
 ];
 
 @NgModule({

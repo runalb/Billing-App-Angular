@@ -14,6 +14,27 @@ const MENU_ITEMS: MenuItem[] = [
 
     { key: 'apps', label: 'Apps', isTitle: true },
     {
+        key: 'apps-tasks',
+        label: 'Invoice',
+        isTitle: false,
+        icon: 'mdi mdi-clipboard-outline',
+        collapsed: true,
+        children: [
+            {
+                key: 'task-details',
+                label: 'Create Invoice',
+                url: '/apps/tasks/create-invoice',
+                parentKey: 'apps-tasks',
+            },
+            {
+                key: 'task-kanban',
+                label: 'Kanban Board',
+                url: '/apps/tasks/kanban',
+                parentKey: 'apps-tasks',
+            },
+        ],
+    },
+    {
         key: 'apps-calendar',
         label: 'Calendar',
         isTitle: false,
@@ -39,27 +60,6 @@ const MENU_ITEMS: MenuItem[] = [
                 label: 'Inbox',
                 url: '/apps/email/inbox',
                 parentKey: 'apps-email',
-            },
-        ],
-    },
-    {
-        key: 'apps-tasks',
-        label: 'Tasks',
-        isTitle: false,
-        icon: 'mdi mdi-clipboard-outline',
-        collapsed: true,
-        children: [
-            {
-                key: 'task-kanban',
-                label: 'Kanban Board',
-                url: '/apps/tasks/kanban',
-                parentKey: 'apps-tasks',
-            },
-            {
-                key: 'task-details',
-                label: 'Details',
-                url: '/apps/tasks/details',
-                parentKey: 'apps-tasks',
             },
         ],
     },
