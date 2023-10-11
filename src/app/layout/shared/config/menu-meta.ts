@@ -21,15 +21,21 @@ const MENU_ITEMS: MenuItem[] = [
         collapsed: true,
         children: [
             {
-                key: 'task-details',
+                key: 'create-invoice',
                 label: 'Create Invoice',
-                url: '/apps/tasks/create-invoice',
+                url: '/apps/tasks/invoice',
                 parentKey: 'apps-tasks',
             },
             {
                 key: 'task-kanban',
                 label: 'Kanban Board',
                 url: '/apps/tasks/kanban',
+                parentKey: 'apps-tasks',
+            },
+            {
+                key: 'task-details',
+                label: 'Details',
+                url: '/apps/tasks/details',
                 parentKey: 'apps-tasks',
             },
         ],
