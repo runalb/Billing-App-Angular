@@ -17,7 +17,7 @@ import { User } from 'src/app/core/models/auth.models';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup = this.fb.group({
-    email: ['adminto@coderthemes.com', [Validators.required, Validators.email]],
+    email: ['test@runalb.com', [Validators.required, Validators.email]],
     password: ['test', Validators.required]
   });
   formSubmitted: boolean = false;
