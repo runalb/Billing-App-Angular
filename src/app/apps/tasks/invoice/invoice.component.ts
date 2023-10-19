@@ -36,9 +36,18 @@ export class InvoiceComponent implements OnInit {
       invoice_id: '2016-04-23654789',
       customer: 'Stanley Jones',
       notes: 'All accounts are to be paid within 7 days from receipt of invoice. To be paid by cheque or credit card or direct payment online. If account is not paid within 7 days the credits details supplied as confirmation of work undertaken will be charged the agreed quoted fee noted above.',
-      order_date: ' Jan 17, 2016',
-      order_status: 'Pending',
+      order_date: ' Jan 17, 2023',
+      order_status: '',
       order_id: '#123456',
+      sellerAddress: {
+        owner: 'MANORMA INDUSTRIES',
+        line_1: 'M-92, MIDC Nangaon Peth',
+        city: 'Amravati',
+        state: 'Maharashtra',
+        zip: 444602,
+        phone: '8975575369',
+        email: 'manoramaindutry@gamil.com'
+      },
       address: {
         owner: 'Twitter, Inc.',
         line_1: '795 Folsom Ave, Suite 600',
@@ -46,6 +55,7 @@ export class InvoiceComponent implements OnInit {
         state: 'CA',
         zip: 94107,
         phone: '(123) 456-7890',
+        email: ''
       },
       items: [
         {
@@ -89,10 +99,10 @@ export class InvoiceComponent implements OnInit {
           total: 400,
         },
       ],
-      sub_total: 2930.0,
-      discount: 12.9,
-      vat: 12.9,
-      total: 2930.0,
+      sub_total: 2930.00,
+      discount: 12.90,
+      vat: 12.90,
+      total: 245930.00,
     };
   }
 

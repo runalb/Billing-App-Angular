@@ -14,6 +14,7 @@ interface Address {
     state?: string;
     zip?: number;
     phone?: string;
+    email?: string;
 }
 
 export interface Invoice {
@@ -26,6 +27,7 @@ export interface Invoice {
     order_status?: string;
     order_id: string;
     address?: Address;
+    sellerAddress?: Address;
     items: InvoiceItem[];
     sub_total?: number;
     discount?: number;
