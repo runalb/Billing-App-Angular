@@ -21,6 +21,12 @@ const MENU_ITEMS: MenuItem[] = [
         collapsed: true,
         children: [
             {
+                key: 'create-invoice',
+                label: 'Create Invoice',
+                url: '/apps/tasks/create-invoice',
+                parentKey: 'apps-tasks',
+            },
+            {
                 key: 'invoice',
                 label: 'Invoice',
                 url: '/apps/tasks/invoice',

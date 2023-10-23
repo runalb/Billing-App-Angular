@@ -10,6 +10,7 @@ import { TasksRoutingModule } from './tasks-routing.module';
 import { KanbanBoardComponent } from './kanban-board/kanban-board.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { CreateInvoiceComponent } from './create-invoice/create-invoice.component';
 
 
 
@@ -17,7 +18,8 @@ import { InvoiceComponent } from './invoice/invoice.component';
   declarations: [
     InvoiceComponent,
     KanbanBoardComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    CreateInvoiceComponent
   ],
   imports: [
     CommonModule,
