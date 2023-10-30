@@ -17,33 +17,11 @@ import { Invoice } from './invoice.model';
 export class CreateInvoiceComponent implements OnInit {
 
   invoiceData!: Invoice;
+  public tempItem: any = {};
 
-  constructor (private eventService: EventService) { }
+  constructor(private eventService: EventService) { }
 
-  products = [
-    {
-      id: 1,
-      firstName: 'Mark',
-      lastName: 'Otto',
-      userName: '@mdo',
-      qty:66
-    },
-    {
-      id: 2,
-      firstName: 'Jacob',
-      lastName: 'Thornton',
-      userName: '@fat',
-      qty:6
-    },
-    {
-      id: 3,
-      firstName: 'Larry',
-      lastName: 'the Bird',
-      userName: '@twitter',
-      qty:3
-    }
-  ];
-  
+
 
 
   ngOnInit(): void {
@@ -51,18 +29,13 @@ export class CreateInvoiceComponent implements OnInit {
       title: "Create Invoice",
       breadCrumbItems: [{ label: 'Invoice', path: '.' }, { label: 'Create Invoice', path: '.', active: true }]
     });
-    this._fetchData();
-  }
 
 
 
 
 
-  
-  /**
-   * fetches invoice data
-   */
-  _fetchData(): void {
+
+
 
     this.invoiceData = {
       invoice_id: '2016-04-23654789',
@@ -89,60 +62,72 @@ export class CreateInvoiceComponent implements OnInit {
         phone: '(123) 456-7890',
         email: ''
       },
-      items: [
-        {
-          id: 1,
-          name: 'LCD',
-          description: 'Lorem ipsum dolor sit amet.',
-          quantity: 1,
-          unit_cost: 380,
-          total: 380,
-        },
-        {
-          id: 2,
-          name: 'Mobile',
-          description: 'Lorem ipsum dolor sit amet.',
-          quantity: 5,
-          unit_cost: 50,
-          total: 250,
-        },
-        {
-          id: 3,
-          name: 'LED',
-          description: 'Lorem ipsum dolor sit amet.',
-          quantity: 2,
-          unit_cost: 500,
-          total: 1000,
-        },
-        {
-          id: 4,
-          name: 'LCD',
-          description: 'Lorem ipsum dolor sit amet.',
-          quantity: 3,
-          unit_cost: 300,
-          total: 900,
-        },
-        {
-          id: 5,
-          name: 'Mobile',
-          description: 'Lorem ipsum dolor sit amet.',
-          quantity: 5,
-          unit_cost: 80,
-          total: 400,
-        },
-      ],
-      sub_total: 2930.00,
-      discount: 12.90,
-      vat: 12.90,
-      total: 245930.00,
+      items: [],
+      sub_total: 0,
+      cgst: 0,
+      sgst: 0,
+      total: 0,
     };
+
+
+  }
+
+  addProduct() {
+    console.log(this.tempItem);
+    this.invoiceData.items?.push(this.tempItem)
+    this.tempItem = {}
+
+    this.calculateSubTotal()
+    this.calculateCGSTnSGST()
+    this.calculateTotal()
+  }
+
+  onChange(event: any) {
+    let qty = event.target.value
+    let ucost = this.tempItem.unit_cost
+    this.tempItem.total = ucost * qty
+  }
+
+  calculateSubTotal() {
+    let sub_total = 0
+    this.invoiceData.items?.forEach(item => {
+      if (item.total != undefined) {
+        sub_total = sub_total + item.total
+      }
+    });
+    this.invoiceData.sub_total = sub_total
+  }
+
+
+  calculateCGSTnSGST() {
+    let cgst = (2.5 / 100) * this.invoiceData.sub_total
+    this.invoiceData.cgst = cgst
+
+    let sgst = (2.5 / 100) * this.invoiceData.sub_total
+    this.invoiceData.sgst = sgst
+  }
+
+  calculateTotal() {
+    this.invoiceData.total = this.invoiceData.sub_total + this.invoiceData.cgst + this.invoiceData.sgst
   }
 
 
 
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -239,40 +239,41 @@
                                             <td></td>
 
                                             <td>
-                                                <input type="text" id="simpleinput" class="form-control"
+                                                <input [(ngModel)]="tempItem.name" type="text" id="simpleinput" class="form-control"
                                                     placeholder="Item Name">
                                             </td>
 
                                             <td>
-                                                <input type="text" id="simpleinput" class="form-control"
+                                                <input [(ngModel)]="tempItem.id" type="text" id="simpleinput" class="form-control"
                                                     placeholder="HSN/SAC">
                                             </td>
 
                                             <td>
-                                                <input type="text" id="simpleinput" class="form-control"
+                                                <input [(ngModel)]="tempItem.description" type="text" id="simpleinput" class="form-control"
                                                     placeholder="Description">
                                             </td>
 
                                             <td>
-                                                <input type="number" id="simpleinput" class="form-control"
-                                                    placeholder="Unit Cost">
+                                                <input [(ngModel)]="tempItem.unit_cost" type="number" id="simpleinput" class="form-control"
+                                                    placeholder="Unit Cost" required>
                                             </td>
 
                                             <td>
-                                                <input type="number" id="simpleinput" class="form-control"
-                                                    placeholder="Quantity">
+                                                <input [(ngModel)]="tempItem.quantity" type="number" id="simpleinput" class="form-control"
+                                                    placeholder="Quantity" (input)="onChange($event)">
                                             </td>
 
                                             <td>
-                                                <input type="number" class="form-control" id="example-disable"
-                                                    disabled="" value="1200">
+                                                <input [(ngModel)]="tempItem.total" type="number" class="form-control" id="example-disable"
+                                                    disabled>
                                             </td>
 
                                             <td>
                                                 <button type="submit"
-                                                    class="btn btn-primary waves-effect waves-light">Add</button>
+                                                    class="btn btn-primary waves-effect waves-light" (click)="addProduct()">Add</button>
                                             </td>
                                         </tr>
+                                    
                                     </tbody>
                                 </table>
                             </div>
@@ -300,8 +301,8 @@
 
                         <div class="col-xl-4 col-6 offset-xl-2 mt-2">
                             <p class="text-end"><b>Sub-total:</b> {{invoiceData.sub_total | number : '1.2-2'}}</p>
-                            <p class="text-end">CGST (2.5%): {{invoiceData.discount | number : '1.2-2'}}</p>
-                            <p class="text-end">SGST (2.5%): {{invoiceData.vat | number : '1.2-2'}}</p>
+                            <p class="text-end">CGST (2.5%): {{invoiceData.cgst | number : '1.2-2'}}</p>
+                            <p class="text-end">SGST (2.5%): {{invoiceData.sgst | number : '1.2-2'}}</p>
                             <hr>
                             <h3 class="text-end">Grand Total : {{invoiceData.total | currency : 'INR' : 'symbol' :
                                 '1.2-2'}}</h3>

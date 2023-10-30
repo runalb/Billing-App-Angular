@@ -1,10 +1,10 @@
 interface InvoiceItem {
-    id: number;
-    name: string;
-    description: string;
-    quantity: number;
-    unit_cost: number;
-    total: number;
+    name?: string;
+    id?: number;
+    description?: string;
+    unit_cost?: number;
+    quantity?: number;
+    total?: number;
 }
 
 interface Address {
@@ -25,12 +25,14 @@ export interface Invoice {
     invoice_status?: string;
     order_date?: string;
     order_status?: string;
-    order_id: string;
+    order_id?: string;
     address?: Address;
     sellerAddress?: Address;
-    items: InvoiceItem[];
-    sub_total?: number;
+    items?: InvoiceItem[];
+    sub_total: number;
     discount?: number;
     vat?: number;
-    total?: number;
+    total: number;
+    cgst: number;
+    sgst: number;
 };
