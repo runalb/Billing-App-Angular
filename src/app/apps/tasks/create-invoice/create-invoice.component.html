@@ -1,1 +1,326 @@
-<p>create-invoice works!</p>
+<!-- Form row -->
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Buyer Details</h4>
+                <p class="text-muted font-13">More complex layouts can also be created with the grid system.</p>
+
+                <form>
+
+                    <div class="mb-3">
+                        <label for="simpleinput" class="form-label">Name</label>
+                        <input type="text" id="simpleinput" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputAddress2" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress2"
+                            placeholder="Apartment, studio, or floor">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-7">
+                            <label for="inputState" class="form-label">State</label>
+                            <select id="inputState" class="form-select">
+                                <option>Choose</option>
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-5">
+                            <label for="inputZip" class="form-label">Zip</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Add Buyer Details</button>
+
+                </form>
+            </div> <!-- end card-body -->
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+
+
+
+
+
+    <!-- form 2 -->
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Invoice Details</h4>
+                <p class="text-muted font-13">More complex layouts can also be created with the grid system.</p>
+
+                <form>
+                    <div class="mb-3">
+                        <label for="simpleinput" class="form-label">Invoice No</label>
+                        <input type="text" id="simpleinput" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="example-date" class="form-label">Date</label>
+                        <input class="form-control" id="example-date" type="date" name="date">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="example-select" class="form-label">Mode of Payment</label>
+                        <select class="form-select" id="example-select">
+                            <option>--</option>
+                            <option>Cash</option>
+                            <option>UPI</option>
+                            <option>Online Banking</option>
+                            <option>Check</option>
+                        </select>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="simpleinput" class="form-label">Delivery Note</label>
+                        <input type="text" id="simpleinput" class="form-control">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Add Inovice Details</button>
+
+                </form>
+
+            </div> <!-- end card-body -->
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+    <!-- end form 2 -->
+
+
+
+</div>
+<!-- end row -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="panel-body">
+                    <div class="clearfix">
+                        <div class="float-start">
+                            <h3>Tax Invoice</h3>
+                        </div>
+                        <div class="float-end">
+                            <h4>Invoice No. <br>
+                                <strong>{{invoiceData.invoice_id}}</strong>
+                            </h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="float-start mt-3">
+
+                                <address>
+                                    <strong>{{invoiceData.sellerAddress?.owner}}</strong><br>
+                                    {{invoiceData.sellerAddress?.line_1}}<br>
+                                    {{invoiceData.sellerAddress?.city}}, {{invoiceData.sellerAddress?.state}}
+                                    {{invoiceData.sellerAddress?.zip}}<br>
+                                    Phone no: {{invoiceData.sellerAddress?.phone}}<br>
+                                    {{invoiceData.sellerAddress?.email}}
+                                </address><br>
+
+                                <strong>Invoiced To: </strong><br>
+                                <address>
+                                    <strong>{{invoiceData.address?.owner}}</strong><br>
+                                    {{invoiceData.address?.line_1}}<br>
+                                    {{invoiceData.address?.city}}, {{invoiceData.address?.state}}
+                                    {{invoiceData.address?.zip}}<br>
+                                    Phone no: {{invoiceData.address?.phone}}<br>
+                                    {{invoiceData.address?.email}}
+                                </address>
+                            </div>
+
+                            <div class="float-end mt-3">
+
+                                <strong>Date: </strong>
+                                <span class="float-end">{{invoiceData.order_date}}</span> <br>
+
+                                <strong>Mode of Payment: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Delivery Note: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Delivery Note Date: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Suppliers Ref: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Other References: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Buyers Order No: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Dated: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Dispatch Document No.:</strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Dispatch through: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Destination: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span> <br>
+
+                                <strong>Terms of Deliver: </strong>
+                                <span class="float-end">{{invoiceData.order_status}}</span>
+                            </div>
+                        </div><!-- end col -->
+                    </div>
+                    <!-- end row -->
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table mt-4">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;">Sr</th>
+                                            <th>Item</th>
+                                            <th style="text-align: center;">HSN/SAC</th>
+                                            <th style="text-align: center;">Description</th>
+                                            <th style="text-align: right;">Unit Cost</th>
+                                            <th style="text-align: center;">Quantity</th>
+                                            <th style="text-align: right;">Total</th>
+                                            <th style="text-align: center;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of invoiceData.items; index as i">
+                                            <td style="text-align: center;">{{i+1}}</td>
+                                            <td>{{item.name}}</td>
+                                            <td style="text-align: center;">{{item.id}}</td>
+                                            <td>{{item.description}}</td>
+                                            <td style="text-align: right;">{{item.unit_cost | currency : 'INR' :
+                                                'symbol' }}</td>
+                                            <td style="text-align: center;">{{item.quantity}}</td>
+                                            <td style="text-align: right;">{{item.total | currency : 'INR' : 'symbol' }}
+                                            </td>
+                                            <td>
+                                                <button type="button"
+                                                    class="btn btn-danger waves-effect waves-light "><i
+                                                        class="mdi mdi-close"></i></button>
+                                            </td>
+                                        </tr>
+
+
+                                        <!-- Form -->
+                                        <tr>
+                                            <td></td>
+
+                                            <td>
+                                                <input type="text" id="simpleinput" class="form-control"
+                                                    placeholder="Item Name">
+                                            </td>
+
+                                            <td>
+                                                <input type="text" id="simpleinput" class="form-control"
+                                                    placeholder="HSN/SAC">
+                                            </td>
+
+                                            <td>
+                                                <input type="text" id="simpleinput" class="form-control"
+                                                    placeholder="Description">
+                                            </td>
+
+                                            <td>
+                                                <input type="number" id="simpleinput" class="form-control"
+                                                    placeholder="Unit Cost">
+                                            </td>
+
+                                            <td>
+                                                <input type="number" id="simpleinput" class="form-control"
+                                                    placeholder="Quantity">
+                                            </td>
+
+                                            <td>
+                                                <input type="number" class="form-control" id="example-disable"
+                                                    disabled="" value="1200">
+                                            </td>
+
+                                            <td>
+                                                <button type="submit"
+                                                    class="btn btn-primary waves-effect waves-light">Add</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-6">
+                            <!-- <div class="clearfix mt-4">
+                                <h5 class="small text-dark fw-normal">PAYMENT TERMS AND CONDITION</h5>
+                                <small>
+                                    <ul>
+                                        <li>Goods once sold will not be taken back or exchange.</li>
+                                        <li>Complaints if any should reach us within 7 days the date of receipt of goods.</li>
+                                    </ul>
+                                </small>
+                            </div>
+
+                            <div class="clearfix mt-4">
+                                <h5 class="small text-dark fw-normal">DECLARATION</h5>
+                                <small>
+                                    We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct 
+                                </small>
+                            </div> -->
+                        </div>
+
+                        <div class="col-xl-4 col-6 offset-xl-2 mt-2">
+                            <p class="text-end"><b>Sub-total:</b> {{invoiceData.sub_total | number : '1.2-2'}}</p>
+                            <p class="text-end">CGST (2.5%): {{invoiceData.discount | number : '1.2-2'}}</p>
+                            <p class="text-end">SGST (2.5%): {{invoiceData.vat | number : '1.2-2'}}</p>
+                            <hr>
+                            <h3 class="text-end">Grand Total : {{invoiceData.total | currency : 'INR' : 'symbol' :
+                                '1.2-2'}}</h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-print-none">
+                        <div class="float-end">
+                            <!-- <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i
+                                    class="fa fa-print"></i> Print Invoice</a> -->
+                            <a [routerLink]="['.']" class="btn btn-primary waves-effect waves-light ms-1">Create
+                                Invoice</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
