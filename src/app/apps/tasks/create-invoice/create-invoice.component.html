@@ -1,5 +1,6 @@
 <!-- Form row -->
-<div class="row">
+<div class="row" *ngIf="!printInvoiceFlag">
+
     <div class="col-6">
         <div class="card">
             <div class="card-body">
@@ -212,7 +213,7 @@
                                             <th style="text-align: right;">Unit Cost</th>
                                             <th style="text-align: center;">Quantity</th>
                                             <th style="text-align: right;">Total</th>
-                                            <th style="text-align: center;">Action</th>
+                                            <th style="text-align: center;" *ngIf="!printInvoiceFlag">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -226,7 +227,7 @@
                                             <td style="text-align: center;">{{item.quantity}}</td>
                                             <td style="text-align: right;">{{item.total | currency : 'INR' : 'symbol' }}
                                             </td>
-                                            <td>
+                                            <td *ngIf="!printInvoiceFlag">
                                                 <button type="button"
                                                     class="btn btn-danger waves-effect waves-light "><i
                                                         class="mdi mdi-close"></i></button>
@@ -235,7 +236,7 @@
 
 
                                         <!-- Form -->
-                                        <tr>
+                                        <tr *ngIf="!printInvoiceFlag">
                                             <td></td>
 
                                             <td>
@@ -311,10 +312,18 @@
                     <hr>
                     <div class="d-print-none">
                         <div class="float-end">
-                            <!-- <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i
-                                    class="fa fa-print"></i> Print Invoice</a> -->
-                            <a [routerLink]="['.']" class="btn btn-primary waves-effect waves-light ms-1">Create
-                                Invoice</a>
+                            
+                            <a class="btn waves-effect waves-light ms-1" 
+                                (click)="createInvoice()"
+                                [ngClass]="printInvoiceFlag ? 'btn-danger' : 'btn-primary'">
+                                {{ printInvoiceFlag ? "Edit Invoice" : "Create Invoice" }}
+                            </a>
+
+                            <a class="btn btn-dark waves-effect waves-light ms-1" href="javascript:window.print()" 
+                                *ngIf="printInvoiceFlag">
+                                <i class="fa fa-print"></i> Print Invoice
+                            </a>
+
                         </div>
                         <div class="clearfix"></div>
                     </div>

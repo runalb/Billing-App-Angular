@@ -18,6 +18,7 @@ export class CreateInvoiceComponent implements OnInit {
 
   invoiceData!: Invoice;
   public tempItem: any = {};
+  printInvoiceFlag: boolean = false;
 
   constructor(private eventService: EventService) { }
 
@@ -109,6 +110,12 @@ export class CreateInvoiceComponent implements OnInit {
 
   calculateTotal() {
     this.invoiceData.total = this.invoiceData.sub_total + this.invoiceData.cgst + this.invoiceData.sgst
+  }
+
+
+  createInvoice(){
+    // this.printInvoiceFlag = true
+    this.printInvoiceFlag = !this.printInvoiceFlag
   }
 
 
