@@ -1,4 +1,4 @@
-interface InvoiceItem {
+export interface InvoiceItem {
     name?: string;
     id?: number;
     description?: string;
@@ -7,7 +7,8 @@ interface InvoiceItem {
     total?: number;
 }
 
-interface Address {
+export interface Details {
+    name?: string;
     owner?: string;
     line_1?: string;
     city?: string;
@@ -26,8 +27,8 @@ export interface Invoice {
     order_date?: string;
     order_status?: string;
     order_id?: string;
-    address?: Address;
-    sellerAddress?: Address;
+    buyer_details?: Details;
+    seller_details?: Details;
     items?: InvoiceItem[];
     sub_total: number;
     discount?: number;

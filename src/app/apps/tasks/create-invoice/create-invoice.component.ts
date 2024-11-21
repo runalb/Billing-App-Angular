@@ -45,8 +45,8 @@ export class CreateInvoiceComponent implements OnInit {
       order_date: ' Jan 17, 2023',
       order_status: '',
       order_id: '#123456',
-      sellerAddress: {
-        owner: 'MANORMA INDUSTRIES',
+      seller_details: {
+        name: 'MANORMA INDUSTRIES',
         line_1: 'M-92, MIDC Nangaon Peth',
         city: 'Amravati',
         state: 'Maharashtra',
@@ -54,13 +54,13 @@ export class CreateInvoiceComponent implements OnInit {
         phone: '8975575369',
         email: 'manoramaindutry@gmail.com'
       },
-      address: {
-        owner: 'Twitter, Inc.',
-        line_1: '795 Folsom Ave, Suite 600',
-        city: 'San Francisco',
-        state: 'CA',
-        zip: 94107,
-        phone: '(123) 456-7890',
+      buyer_details: {
+        name: '',
+        line_1: '',
+        city: '',
+        state: '',
+        zip: undefined,
+        phone: '',
         email: ''
       },
       items: [],
