@@ -14,7 +14,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-Run `yarn build --output-path docs --base-href /Billing-App-Angular/`
+Run `yarn build --output-path docs --base-href /Ebill/`
+
+Run `ng build --output-path docs --base-href /Ebill/`
 
 ## Running unit tests
 
